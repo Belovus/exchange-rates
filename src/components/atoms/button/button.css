@@ -1,0 +1,27 @@
+.Button {
+    cursor: pointer;
+    width: 100px;
+    border-radius: 16px;
+    padding: 12px;
+    background: #e0e0e0;
+    color: #262626;
+    border: none;
+    font-weight: 600;
+    font-family: "Roboto", sans-serif;
+}
+
+.Button:hover {
+    background: rgba(38,38,38,.16);
+}
+
+.ButtonActive {
+    cursor: pointer;
+    width: 100px;
+    border-radius: 16px;
+    padding: 12px;
+    background: #262626;
+    border: none;
+    color: white;
+    font-weight: 600;
+    font-family: "Roboto", sans-serif;
+}

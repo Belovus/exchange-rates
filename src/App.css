@@ -1,0 +1,50 @@
+.App {
+  width: 100vw;
+  background-color: #f0f8ff;
+  position: relative;
+  font-family: "Roboto", sans-serif;
+}
+
+.DataPickerZone {
+  display: flex;
+  flex-direction: row-reverse;
+  padding-right: 50px;
+  padding-left: 50px;
+  position: sticky;
+  top: 0;
+  background-color: #98c9f4;
+  z-index: 9999;
+}
+
+@media screen and (max-width: 768px) {
+  .DataPickerZone {
+    justify-content: center;
+    flex-direction: row;
+  }
+}
+
+.CurrencyBlocksWrapper {
+  margin-top: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .CurrencyBlocksWrapper {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+.Loading {
+  position: absolute;
+  background: grey;
+  opacity: 0.25;
+  height: 100%;
+  width: 100%;
+  top: 60px;
+}

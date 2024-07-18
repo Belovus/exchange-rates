@@ -1,0 +1,17 @@
+.CurrencyBlockHeader {
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+    margin-top: 10px;
+}
+
+.CurrencyCodeText {
+    margin-left: 20px;
+    font-size: 20px;
+    margin-top: 5px;
+}
+
+.CurrencyImg {
+    width: 35px;
+    height: 35px;
+}

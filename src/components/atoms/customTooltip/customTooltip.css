@@ -1,0 +1,22 @@
+.CustomTooltip {
+    border-radius: 20px;
+    background: #98c9f4;
+    padding: 15px;
+}
+
+.TooltipTitle {
+    margin: 0;
+}
+
+.TooltipTitleWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.TooltipValue {
+    display: flex;
+    justify-content: center;
+    height: 15px;
+    font-weight: 650;
+}
