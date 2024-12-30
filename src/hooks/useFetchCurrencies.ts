@@ -10,7 +10,7 @@ export const useFetchCurrencies = () => {
   const fetchCurrenciesPeriod = useCallback(async ({ startDate, endDate, baseCurrency }: { startDate: string, endDate: string, baseCurrency: string }) => {
     setLoading(true);
     try {
-      const response = await fetch(`${BASE_API_URL}/exchangerates_data/timeseries?start_date=${startDate}&end_date=${endDate}&base=${baseCurrency}`, {
+      const response = await fetch(`${BASE_API_URL}/exchangerates_data/timeseries?start_date=${startDate}&end_date=${endDate}&base=${baseCurrency}&symbols=${SYMBOLS}`, {
         method: "GET",
         redirect: "follow",
         headers: MY_HEADERS

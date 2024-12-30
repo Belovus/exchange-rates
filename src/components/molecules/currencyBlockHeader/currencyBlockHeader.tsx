@@ -6,7 +6,7 @@ const CurrencyBlockHeader = ({ currencyTarget }: { currencyTarget: string }) => 
   const countryCode = currenciesWithFlagsfrom.find((el) => el.code === currencyTarget)?.code;
   return (
     <div className="CurrencyBlockHeader">
-      <img className="CurrencyImg" src={countryImg} />
+      <img className="CurrencyImg" src={countryImg} alt={"countryImg"} />
       <span className="CurrencyCodeText">{countryCode}</span>
     </div>
   )

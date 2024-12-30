@@ -1,7 +1,6 @@
 import { DataT } from "../../../types";
 import { CurrencyBlock } from "../currencyBlock";
-import React, { useEffect } from "react";
-import { scroller } from "react-scroll";
+import React from "react";
 
 const CurrencyBlocks = ({
   data,
@@ -18,7 +17,7 @@ const CurrencyBlocks = ({
   return (
     <>
       {currencyNames.map((currencyName, index) => {
-        const targetRatesArray = ratesArray.map((rate) => rate[currencyName].toFixed(3));
+        const targetRatesArray = ratesArray.map((rate) => rate[currencyName].toFixed(2));
         return (
           <CurrencyBlock
             targetRatesArray={targetRatesArray}

@@ -1,6 +1,7 @@
-export const API_KEY = "NZ7YeOlFrULcuYZqah4c2ASSttduXZww";
+export const API_KEY = "wLmYNTAUIYpOTGMv22A7eVQ0U1ojwvFc";
 // 6iyZk3ocW8vxM3E6D9drsnlvrYSYsdl1
 // wLmYNTAUIYpOTGMv22A7eVQ0U1ojwvFc
+// NZ7YeOlFrULcuYZqah4c2ASSttduXZww
 
 export let MY_HEADERS = new Headers();
 MY_HEADERS.append("apikey", API_KEY);
@@ -12,4 +13,4 @@ export const SYMBOLS = "RUB,AUD,CAD,EUR,GBP,JPY,NZD";
 export const MONTHS = [
   "January", "February", "March", "April", "May", "June", "July",
   "August", "September", "October", "November", "December"
-]
+];

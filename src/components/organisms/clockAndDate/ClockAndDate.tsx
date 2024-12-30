@@ -17,7 +17,7 @@ const ClockAndDate = () => {
 
   return (
     <div className="ClockAndDate">
-      {time.format('DD.MM.YYYY, HH:mm:ss')}
+      {time.format('DD.MM.YYYY HH:mm:ss')}
     </div>
   )
 }

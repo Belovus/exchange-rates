@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import "./dataPickerZone.css";
 import { Button } from "../../atoms/button";
@@ -11,10 +11,11 @@ type DataPickerZoneT = {
   setEndDate: Dispatch<SetStateAction<string>>;
   setActiveCurrency: Dispatch<SetStateAction<ACTIVE_BUTTONS>>;
   activeCurrency: ACTIVE_BUTTONS;
+  activePeriod: ACTIVE_BUTTONS;
+  setActivePeriod: Dispatch<SetStateAction<ACTIVE_BUTTONS>>;
 }
 
-const DataPickerZone = ({ setStartDate, setEndDate, setActiveCurrency, activeCurrency }: DataPickerZoneT) => {
-  const [activePeriod, setActivePeriod] = useState<ACTIVE_BUTTONS>(ACTIVE_BUTTONS.MONTH);
+const DataPickerZone = ({ setStartDate, setEndDate, setActiveCurrency, activeCurrency, activePeriod, setActivePeriod }: DataPickerZoneT) => {
 
   const handleOnClickCurrency = (currency: ACTIVE_BUTTONS) => {
     setActiveCurrency(currency);
