@@ -21,11 +21,11 @@ jobs:
 
       - name: Build Docker image
         run: | 
-          docker build belovus/exchange-rates_react-nginx-app:latest
+          docker-compose build
 
       - name: Push Docker image
         run: |
-          docker push belovus/exchange-rates_react-nginx-app:latest
+          docker-compose push
 
       - name: Deploy to VDS
         env:
