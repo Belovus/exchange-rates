@@ -29,12 +29,10 @@ jobs:
       - name: Deploy to VDS
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          IP: ${{ variables.IP }}
         run: | 
           echo "$SSH_PRIVATE_KEY" > private_key
-          echo "$IP" > IP
           chmod 600 private_key
-          ssh -i private_key root@IP "docker pull belovus/exchange-rates_react-nginx-app:latest"
-          ssh -i private_key root@IP "docker stop exchange-rates_react-nginx-app"
-          ssh -i private_key root@IP "docker start exchange-rates_react-nginx-app"
+          ssh -i private_key root@194.87.110.35 "docker pull belovus/exchange-rates_react-nginx-app:latest"
+          ssh -i private_key root@194.87.110.35 "docker stop exchange-rates_react-nginx-app"
+          ssh -i private_key root@194.87.110.35 "docker start exchange-rates_react-nginx-app"
           
