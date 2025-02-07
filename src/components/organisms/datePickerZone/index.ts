@@ -1,1 +1,1 @@
-export { default as DataPickerZone } from "./dataPickerZone";
+export { default as DataPickerZone } from './dataPickerZone';

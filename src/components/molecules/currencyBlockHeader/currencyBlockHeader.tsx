@@ -1,15 +1,25 @@
-import "./currencyBlockHeader.css";
-import currenciesWithFlagsfrom from "../../../helpers/currencies-with-flags.json";
+import './currencyBlockHeader.css';
+import currenciesWithFlags from '../../../helpers/currencies-with-flags.json';
 
-const CurrencyBlockHeader = ({ currencyTarget }: { currencyTarget: string }) => {
-  const countryImg = currenciesWithFlagsfrom.find((el) => el.code === currencyTarget)?.flag;
-  const countryCode = currenciesWithFlagsfrom.find((el) => el.code === currencyTarget)?.code;
+interface CurrencyBlockHeaderProps {
+  currencyTarget: string;
+  currentRate: number;
+  currencyBase: string;
+}
+
+const CurrencyBlockHeader = ({ currencyTarget, currentRate, currencyBase }: CurrencyBlockHeaderProps) => {
+  const countryImg = currenciesWithFlags.find((el) => el.code === currencyTarget)?.flag;
+  const countryCode = currenciesWithFlags.find((el) => el.code === currencyTarget)?.code;
+
   return (
     <div className="CurrencyBlockHeader">
-      <img className="CurrencyImg" src={countryImg} alt={"countryImg"} />
+      <img className="CurrencyImg" src={countryImg} alt={'countryImg'} />
       <span className="CurrencyCodeText">{countryCode}</span>
+      <div className="CurrencyRateContainer">
+        <span className="CurrencyRateContainerText">{countryCode}{'/'}{currencyBase}{' '}{currentRate}</span>
+      </div>
     </div>
-  )
-}
+  );
+};
 
 export default CurrencyBlockHeader;

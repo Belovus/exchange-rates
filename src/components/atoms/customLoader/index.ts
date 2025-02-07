@@ -1,1 +1,1 @@
-export { default as CustomLoader } from "./customLoader";
+export { default as CustomLoader } from './customLoader';

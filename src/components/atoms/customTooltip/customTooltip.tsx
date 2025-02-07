@@ -1,5 +1,8 @@
-import "./customTooltip.css";
-import { MONTHS } from "../../../helpers/config";
+import './customTooltip.css';
+import { v4 as uuidv4 } from 'uuid';
+
+import { MONTHS } from '../../../helpers/config';
+
 
 type CustomTooltipT = {
   active?: boolean;
@@ -7,7 +10,7 @@ type CustomTooltipT = {
   label: any;
 };
 
-const CustomTooltip = ({ active, payload, label }: CustomTooltipT) => {
+const CustomTooltip = ({ active, payload }: CustomTooltipT) => {
   if (active && payload && payload.length) {
     return (
       <div className="CustomTooltip">
@@ -16,7 +19,7 @@ const CustomTooltip = ({ active, payload, label }: CustomTooltipT) => {
           const monthName = MONTHS[monthNumber];
           const dayNumber = Number(pld.payload.name.toString().substr(3, 4));
           return (
-            <div style={{ display: "inline-block" }}>
+            <div style={{ display: 'inline-block' }} key={uuidv4()}>
               <div className="TooltipTitleWrapper">
                 <h5 className="TooltipTitle">Exchange rate for</h5>
                 <h5 className="TooltipTitle">{monthName} {dayNumber}</h5>
@@ -25,7 +28,7 @@ const CustomTooltip = ({ active, payload, label }: CustomTooltipT) => {
                 <p>{pld.value}</p>
               </div>
             </div>
-          )
+          );
         })}
       </div>
     );
@@ -34,4 +37,4 @@ const CustomTooltip = ({ active, payload, label }: CustomTooltipT) => {
   return null;
 };
 
-export default CustomTooltip
+export default CustomTooltip;

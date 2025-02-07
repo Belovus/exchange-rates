@@ -1,1 +1,1 @@
-export { default as CurrencyBlockHeader } from "./currencyBlockHeader";
+export { default as CurrencyBlockHeader } from './currencyBlockHeader';

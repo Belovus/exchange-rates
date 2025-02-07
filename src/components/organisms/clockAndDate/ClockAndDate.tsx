@@ -1,6 +1,6 @@
-import "./clockAndDate.css";
-import { useEffect, useState } from "react";
-import dayjs from "dayjs"
+import './clockAndDate.css';
+import { useEffect, useState } from 'react';
+import dayjs from 'dayjs';
 
 const ClockAndDate = () => {
   const [time, setTime] = useState(dayjs());
@@ -19,7 +19,7 @@ const ClockAndDate = () => {
     <div className="ClockAndDate">
       {time.format('DD.MM.YYYY HH:mm:ss')}
     </div>
-  )
-}
+  );
+};
 
 export default ClockAndDate;

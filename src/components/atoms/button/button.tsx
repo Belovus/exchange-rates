@@ -1,4 +1,4 @@
-import "./button.css";
+import './button.css';
 
 type ButtonT = {
   text: string;
@@ -11,10 +11,10 @@ const Button = ({
   active,
 }: ButtonT) => {
   return (
-    <button className={active ? "ButtonActive" : "Button"} onClick={onClick}>
+    <button className={active ? 'ButtonActive' : 'Button'} onClick={onClick}>
       {text}
     </button>
-  )
-}
+  );
+};
 
 export default Button;

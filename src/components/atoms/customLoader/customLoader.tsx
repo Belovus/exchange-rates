@@ -7,6 +7,6 @@ const CustomLoader = () => {
       <div className="loader"></div>
     </div>
   );
-}
+};
 
 export default CustomLoader;

@@ -1,0 +1,15 @@
+#!/bin/bash
+version: '3.3'
+services:
+  react-nginx-app:
+    stdin_open: true
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: belovus/exchange-rates_react-nginx-app:latest
+    expose:
+      - 8080
+    ports:
+      - 8080:80
+    environment:
+      - CHOKIDAR_USEPOLLING=true

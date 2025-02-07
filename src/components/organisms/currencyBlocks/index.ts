@@ -1,1 +1,1 @@
-export { default as CurrencyBlocks } from "./currencyBlocks";
+export { default as CurrencyBlocks } from './currencyBlocks';
