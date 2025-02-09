@@ -27,13 +27,18 @@ jobs:
         run: |
           docker compose push
 
+      - name: Set up SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H 194.87.110.35 >> ~/.ssh/known_hosts
+
       - name: Deploy to VDS
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         run: | 
-          echo "$SSH_PRIVATE_KEY" > private_key
-          chmod 600 private_key
-          ssh -i private_key root@194.87.110.35 "docker pull belovus/exchange-rates_react-nginx-app:latest"
-          ssh -i private_key root@194.87.110.35 "docker stop exchange-rates_react-nginx-app"
-          ssh -i private_key root@194.87.110.35 "docker start exchange-rates_react-nginx-app"
+          ssh -i $SSH_PRIVATE_KEY root@194.87.110.35 "docker pull belovus/exchange-rates_react-nginx-app:latest"
+          ssh -i $SSH_PRIVATE_KEY root@194.87.110.35 "docker stop exchange-rates_react-nginx-app"
+          ssh -i $SSH_PRIVATE_KEY root@194.87.110.35 "docker start exchange-rates_react-nginx-app"
           
