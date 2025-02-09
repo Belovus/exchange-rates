@@ -1,3 +1,4 @@
+// TODO: Вынести API_KEY в env файл(?), реализовать логику по подмене API_KEY
 export const API_KEY = 'NZ7YeOlFrULcuYZqah4c2ASSttduXZww';
 // 6iyZk3ocW8vxM3E6D9drsnlvrYSYsdl1
 // wLmYNTAUIYpOTGMv22A7eVQ0U1ojwvFc
@@ -8,6 +9,7 @@ MY_HEADERS.append('apikey', API_KEY);
 
 export const BASE_API_URL = 'https://api.apilayer.com';
 
+// TODO: Добавить больше курсов валют (расширить список)
 export const SYMBOLS = 'RUB,AUD,CAD,EUR,GBP,JPY,NZD';
 
 export const MONTHS = [

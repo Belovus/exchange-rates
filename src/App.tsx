@@ -47,6 +47,8 @@ function App() {
   }, [CURRENCY_QUANTITY, data]);
 
   useEffect(() => {
+    // TODO: Доделать автоскрол
+
     // handleUseScrollerToAllElements();
   }, [handleUseScrollerToAllElements]);
 
@@ -66,6 +68,7 @@ function App() {
             <CurrencyBlocks data={data} />
           </div>
         </SwiperSlide>
+        {/* TODO: Сделать список с криптовалютами */}
         <SwiperSlide>Test</SwiperSlide>
         {loading && (
           <div className="Loading">

@@ -20,7 +20,6 @@ RUN echo "Время последней сборки: $(date)" > /build-info.txt
 
 CMD ["cat", "/build-info.txt"]
 
-
 # STAGE 2
 FROM nginx:alpine
 
