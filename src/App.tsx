@@ -47,6 +47,7 @@ function App() {
   }, [CURRENCY_QUANTITY, data]);
 
   useEffect(() => {
+    //TODO Доделать автоскрол
     // handleUseScrollerToAllElements();
   }, [handleUseScrollerToAllElements]);
 
