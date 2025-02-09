@@ -1,4 +1,4 @@
-name: Docker Build
+name: CURRENCIES_DOCKER_BUILD
 
 on:
   push:
@@ -38,7 +38,7 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         run: | 
-          ssh -i $SSH_PRIVATE_KEY root@194.87.110.35 "docker pull belovus/exchange-rates_react-nginx-app:latest"
-          ssh -i $SSH_PRIVATE_KEY root@194.87.110.35 "docker stop exchange-rates_react-nginx-app"
-          ssh -i $SSH_PRIVATE_KEY root@194.87.110.35 "docker start exchange-rates_react-nginx-app"
+          ssh -i root@194.87.110.35 "docker pull belovus/exchange-rates_react-nginx-app:latest"
+          ssh -i root@194.87.110.35 "docker stop exchange-rates_react-nginx-app"
+          ssh -i root@194.87.110.35 "docker start exchange-rates_react-nginx-app"
           
