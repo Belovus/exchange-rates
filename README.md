@@ -1,1 +1,1 @@
-The application is deployed on http://195.58.54.100/
+The application is deployed on http://194.87.110.35
