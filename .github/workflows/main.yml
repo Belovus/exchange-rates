@@ -49,6 +49,6 @@ jobs:
           
             docker pull belovus/exchange-rates_react-nginx-app:${{ env.VERSION }}
           
-            docker run -d --name exchange-rates_react-nginx-app belovus/exchange-rates_react-nginx-app:${{ env.VERSION }}
+            docker run -p 80:80 -d --name exchange-rates_react-nginx-app belovus/exchange-rates_react-nginx-app:${{ env.VERSION }}
           EOF
           
