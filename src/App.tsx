@@ -57,6 +57,16 @@ function App() {
 
   return (
     <div className="App">
+      <div className="DataPickerZone">
+        <DataPickerZone
+          setStartDate={setStartDate}
+          setEndDate={setEndDate}
+          setActiveCurrency={setActiveCurrency}
+          activeCurrency={activeCurrency}
+          activePeriod={activePeriod}
+          setActivePeriod={setActivePeriod}
+        />
+      </div>
       <Swiper
         slidesPerView={1}
         modules={[Navigation]}

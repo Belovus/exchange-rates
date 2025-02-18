@@ -1,5 +1,5 @@
 // TODO: Вынести API_KEY в env файл(?), реализовать логику по подмене API_KEY
-export const API_KEY = 'NZ7YeOlFrULcuYZqah4c2ASSttduXZww';
+export const API_KEY = '6iyZk3ocW8vxM3E6D9drsnlvrYSYsdl1';
 // 6iyZk3ocW8vxM3E6D9drsnlvrYSYsdl1
 // wLmYNTAUIYpOTGMv22A7eVQ0U1ojwvFc
 // NZ7YeOlFrULcuYZqah4c2ASSttduXZww
