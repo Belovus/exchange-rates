@@ -1,19 +1,19 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { Navigation } from 'swiper/modules';
+// import { Navigation } from 'swiper/modules';
 import './App.css';
 import dayjs from 'dayjs';
 import { scroller } from 'react-scroll';
-import { Swiper, SwiperSlide } from 'swiper/react';
+// import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { useFetchCurrencies } from './hooks/useFetchCurrencies';
 import { DataPickerZone } from './components/organisms/datePickerZone';
 import { CurrencyBlocks } from './components/organisms/currencyBlocks';
 import { CustomLoader } from './components/atoms/customLoader';
 import { ACTIVE_BUTTONS } from './components/organisms/datePickerZone/config';
-import { SYMBOLS } from './helpers/config';
+import { AUTO_SCROLL, SYMBOLS } from './helpers/config';
 
-import 'swiper/css';
-import 'swiper/css/navigation';
+// import 'swiper/css';
+// import 'swiper/css/navigation';
 
 function App() {
   const { fetchCurrenciesPeriod, data, loading } = useFetchCurrencies();
@@ -21,6 +21,7 @@ function App() {
   const [activePeriod, setActivePeriod] = useState<ACTIVE_BUTTONS>(ACTIVE_BUTTONS.MONTH);
   const [startDate, setStartDate] = useState(dayjs().subtract(1, 'month').format('YYYY-MM-DD'));
   const [endDate, setEndDate] = useState(dayjs().format('YYYY-MM-DD'));
+  const [autoScroll, setAutoScroll] = useState(AUTO_SCROLL);
 
   const CURRENCY_QUANTITY = SYMBOLS.split(',').length;
 
@@ -43,12 +44,14 @@ function App() {
         }
       }, 5000);
     };
+    if (!autoScroll) return;
     innerRecursion();
-  }, [CURRENCY_QUANTITY, data]);
+  }, [CURRENCY_QUANTITY, autoScroll, data]);
 
   useEffect(() => {
-    // handleUseScrollerToAllElements();
-  }, [handleUseScrollerToAllElements]);
+    handleUseScrollerToAllElements();
+    setAutoScroll(false);
+  }, [autoScroll, handleUseScrollerToAllElements]);
 
   useEffect(() => {
     fetchCurrenciesPeriod({ startDate, endDate, baseCurrency: activeCurrency });
@@ -67,22 +70,19 @@ function App() {
           setActivePeriod={setActivePeriod}
         />
       </div>
-      <Swiper
-        slidesPerView={1}
-        modules={[Navigation]}
-      >
-        <SwiperSlide>
-          <div className="CurrencyBlocksWrapper">
-            <CurrencyBlocks data={data} />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>Test</SwiperSlide>
-        {loading && (
-          <div className="Loading">
-            <CustomLoader />
-          </div>
-        )}
-      </Swiper>
+      {
+        data && !loading ?
+          (
+            <div className="CurrencyBlocksWrapper">
+              <CurrencyBlocks data={data} />
+            </div>
+          ) : <></>
+      }
+      {loading && (
+        <div className="Loading">
+          <CustomLoader />
+        </div>
+      )}
     </div>
   );
 }

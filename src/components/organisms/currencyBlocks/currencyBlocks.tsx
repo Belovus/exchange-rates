@@ -7,10 +7,8 @@ import { CurrencyBlock } from '../currencyBlock';
 const CurrencyBlocks = ({
   data,
 }: {
-  data: DataT | null
+  data: DataT
 }) => {
-  if (!data) return null;
-
   const ratesArray = Object.entries(data.rates).map(entry => entry[1]);
   const datesArray = Object.keys(data.rates).map(date => date.slice(5).replace('-', '.'));
   const currencyNames = Object.keys(ratesArray[0]);
