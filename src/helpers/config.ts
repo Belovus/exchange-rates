@@ -1,16 +1,20 @@
-// TODO: Вынести API_KEY в env файл(?), реализовать логику по подмене API_KEY
-export const API_KEY = '6iyZk3ocW8vxM3E6D9drsnlvrYSYsdl1';
-// 6iyZk3ocW8vxM3E6D9drsnlvrYSYsdl1
-// wLmYNTAUIYpOTGMv22A7eVQ0U1ojwvFc
-// NZ7YeOlFrULcuYZqah4c2ASSttduXZww
+// ToDo Вынести API_KEYS в env file
+export const API_KEYS = [
+  '8P3XD5qWNwO00g66kpg4wU4LDIcbrG9i',
+  '6iyZk3ocW8vxM3E6D9drsnlvrYSYsdl1',
+  'wLmYNTAUIYpOTGMv22A7eVQ0U1ojwvFc',
+  'NZ7YeOlFrULcuYZqah4c2ASSttduXZww',
+];
 
 export const MY_HEADERS = new Headers();
-MY_HEADERS.append('apikey', API_KEY);
+MY_HEADERS.append('apikey', API_KEYS[0]);
 
 export const BASE_API_URL = 'https://api.apilayer.com';
 
-// TODO: Добавить больше курсов валют (расширить список)
-export const SYMBOLS = 'RUB,AUD,CAD,EUR,GBP,JPY,NZD';
+export const SYMBOLS = 'RUB,USD,EUR,JPY,GBP,CHF,AUD,CAD,NZD,CNY,SEK,MXN,SGD,HKD,NOK,INR,ZAR,THB,AED,PLN';
+
+// При значении true, курсы валют будут плавно скролиться вниз
+export const AUTO_SCROLL = true;
 
 export const MONTHS = [
   'January', 'February', 'March', 'April', 'May', 'June', 'July',
