@@ -16,9 +16,9 @@ jobs:
       - name: Get version from package.json
         id: get_version
         run: |
-            VERSION=$(jq -r '.version' package.json)
-            echo "Building Docker image with tag: $VERSION"
-            echo "VERSION=$VERSION" >> $GITHUB_ENV
+          VERSION=$(jq -r '.version' package.json)
+          echo "Building Docker image with tag: $VERSION"
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v1
@@ -28,10 +28,14 @@ jobs:
 
       - name: Build and Push Docker image
         uses: docker/build-push-action@v2
+        env:
+          IMAGE_NAME: 'exchange-rates_react-nginx-app'
+          VERSION: ${{ env.VERSION }}
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         with:
           context: .
           push: true
-          tags: belovus/exchange-rates_react-nginx-app:${{ env.VERSION }}
+          tags: $DOCKER_USERNAME/$IMAGE_NAME:$VERSION
 
       - name: Set up SSH
         env:
@@ -53,13 +57,12 @@ jobs:
           VERSION: ${{ env.VERSION }}
         run: |
           ssh -t -o StrictHostKeyChecking=no $VPS_USER@$VPS_HOST << 'EOF'
+            set -e
             echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
           
             docker stop $IMAGE_NAME || true
             docker rm $IMAGE_NAME || true
           
-            docker pull belovus/$IMAGE_NAME:$VERSION
-          
-            docker run -p 80:80 -d --name $IMAGE_NAME belovus/$IMAGE_NAME:$VERSION
+            docker pull $DOCKER_USERNAME/$IMAGE_NAME:$VERSION
+            docker run -d --name $IMAGE_NAME $DOCKER_USERNAME/$IMAGE_NAME:$VERSION
           EOF
-          
