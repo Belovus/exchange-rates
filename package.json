@@ -1,6 +1,6 @@
 {
   "name": "currencies",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "private": true,
   "type": "module",
   "dependencies": {
@@ -58,7 +58,6 @@
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-react": "^7.37.3",
     "globals": "^15.14.0",
-    "node-sass": "^7.0.3",
     "prettier": "^3.4.2",
     "sass-loader": "^14.2.1",
     "style-loader": "^4.0.0",
